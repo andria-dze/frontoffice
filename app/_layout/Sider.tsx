@@ -9,7 +9,7 @@ import {
     UserOutlined,
 } from '@ant-design/icons';
 import Link from "next/link";
-import {R_EMPLOYEES, R_HOME, R_HR, R_MEDICAL} from '@/constants/routes'
+import {R_CREATE_EMPLOYEES, R_EMPLOYEES, R_HOME, R_HR, R_MEDICAL} from '@/constants/routes'
 
 const siderStyle: CSSProperties = {
     textAlign: 'center',
@@ -20,7 +20,7 @@ const Sider = () => {
     return (
         <Layout.Sider style={siderStyle}>
             <div className='p-0 fs-7' style={{lineHeight: '1', padding: 8}}>
-                <Link href={R_HOME}><HomeOutlined /> Home</Link>
+                <Link href={R_HOME}><HomeOutlined/> Home</Link>
 
             </div>
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={[
@@ -33,6 +33,10 @@ const Sider = () => {
                             key: 'employees',
                             icon: <UserOutlined/>,
                             label: <Link href={R_EMPLOYEES}> Employees</Link>,
+                        }, {
+                            key: 'addEmployee',
+                            icon: <UserOutlined/>,
+                            label: <Link href={R_CREATE_EMPLOYEES}>Add New Employee</Link>,
                         }
                     ],
                 }, {
