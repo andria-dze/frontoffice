@@ -1,8 +1,9 @@
+'use client'
 import {atom} from "recoil";
 
-const todoListState = atom({
+export const todoListState = atom({
     key: 'User',
     default: {
-        token: ''
+        token: 'zd'
     },
 });

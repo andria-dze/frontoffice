@@ -1,6 +1,8 @@
 'use client'
 import {Space, Table, Tag} from 'antd';
 import type {ColumnsType} from 'antd/es/table';
+import {UsersQuery} from "@/data/selectors/Users";
+import {useRecoilState} from "recoil";
 
 interface DataType {
     key: string;
@@ -85,9 +87,35 @@ const data: DataType[] = [
 
 
 export default function EmployeesDashboard() {
+    console.log('aq page dashboard');
+    const employess = useRecoilState(UsersQuery);
+    console.log('aq employess', employess);
+    /* useEffect(() => {
+         console.log('aq eff');
+         fetchGraphQL(`
+      query ExampleQuery {
+           users {
+             exampleField
+           }
+         }
+     `).then(response => {
+             // Avoid updating state if the component unmounted before the fetch completes
+             if (!isMounted) {
+                 return;
+             }
+             const data = response.data;
+             console.log(data);
+         }).catch(error => {
+             console.error(error);
+         });
+
+         return () => {
+         };
+     }, []);*/
     return (
         <main>
-            <Table columns={columns} dataSource={data}/>
+            zd22
+            {/*<Table columns={columns} dataSource={data}/>*/}
         </main>
     )
 }

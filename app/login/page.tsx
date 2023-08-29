@@ -11,7 +11,7 @@ const onFinishFailed = (errorInfo: any) => {
 
 export default function Login() {
     const [form] = Form.useForm();
-    console.log('aq', form);
+
     return (
         <Form
             name="basic"

@@ -1,7 +1,6 @@
 import React from 'react';
 import './globals.css'
 import type {Metadata} from 'next'
-import {Inter} from 'next/font/google'
 import {ConfigProvider, Layout, Space} from 'antd';
 import Sider from "@/app/_layout/Sider";
 import Content from "@/app/_layout/Content";
@@ -9,8 +8,6 @@ import Header from "@/app/_layout/Header";
 import StyledComponentsRegistry from "@/app/_layout/AntdRegistry";
 import theme from "@/app/_layout/themeConfig";
 import RecoilRootProvider from "@/data/RecoilRootProvider";
-
-const inter = Inter({subsets: ['latin']})
 
 export const metadata: Metadata = {
     title: 'Medical ERP',
@@ -24,11 +21,11 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-        <body className={inter.className}>
+        <body>
         <StyledComponentsRegistry>
             <ConfigProvider theme={theme}>
                 <RecoilRootProvider>
-                    <Layout className={inter.className}>
+                    <Layout>
                         <Sider>Sider</Sider>
                         <Layout>
                             <Header/>
