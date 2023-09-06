@@ -87,8 +87,8 @@ const data: DataType[] = [
 
 
 export default function EmployeesDashboard() {
-    console.log('aq page dashboard');
-    const employess = useRecoilState(UsersQuery);
+
+    const [employess, set] = useRecoilState(UsersQuery);
     console.log('aq employess', employess);
     /* useEffect(() => {
          console.log('aq eff');

@@ -6,7 +6,7 @@ const handleSubmit = (values: any) => {
 };
 
 export default function EditEmployee({params}) {
-    console.log('aq params', params);
+
     return (
         <UserForm data={{name: 'zu'}} onSubmit={handleSubmit}/>
     )

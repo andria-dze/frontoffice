@@ -1,11 +1,26 @@
 'use client'
 import {Button, Form, Input} from "antd";
+import {useMutation, graphql} from "react-relay";
 
 
 const UserForm = ({onSubmit}) => {
-
+    const [commitEvent] = useMutation(graphql`
+    mutation UserFormMutation($input: CreateUserInput!) {
+      createUser(createUserInput: $input) {
+        id
+        firstName
+        lastName
+        email
+      }
+    }
+  `);
     const onFinish = (values: any) => {
         console.log('Success:', values);
+        commitEvent({
+            variables: {
+                input: values
+            }
+        })
         onSubmit && onSubmit(values);
     };
 
@@ -34,7 +49,7 @@ const UserForm = ({onSubmit}) => {
             </Form.Item>
             <Form.Item
                 label="Name"
-                name="name"
+                name="firstName"
                 rules={[{required: true, message: 'Please input your name!'}]}
             >
                 <Input/>
@@ -47,13 +62,21 @@ const UserForm = ({onSubmit}) => {
                 <Input/>
             </Form.Item>
             <Form.Item
-                label="ID Number"
-                name="idNumber"
+                label="Password"
+                name="password"
                 rules={[{required: true, message: 'Please input your last name!'}]}
             >
                 <Input/>
             </Form.Item>
 
+
+            <Form.Item
+                label="Confirm password"
+                name="confirmPassword"
+                rules={[{required: true, message: 'Please input your last name!'}]}
+            >
+                <Input/>
+            </Form.Item>
             <Form.Item wrapperCol={{offset: 8, span: 16}}>
                 <Button type="primary" htmlType="submit">
                     Submit
