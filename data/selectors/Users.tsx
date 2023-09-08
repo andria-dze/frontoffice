@@ -6,18 +6,18 @@ import {graphql} from 'react-relay';
 export const UsersQuery = graphQLSelector({
     key: 'UsersQuery',
     environment: myEnvironmentKey,
-    query: function () {
-        let tmp = graphql`query UsersQuery {
-                              users {
-                                id
-                                email
-                                firstName
-                                lastName
-                              }
-                            }`;
-
-        return tmp.default
-    }(),
+    query: graphql`query UsersQuery {
+                    users(first: 5){
+                        edges{
+                          node{
+                            id,
+                              firstName,
+                              lastName,
+                              email,
+                          },
+                          cursor
+                        }
+                  }}`.default,
     variables: ({get}) => ({}),
     mapResponse: data => data,
 });

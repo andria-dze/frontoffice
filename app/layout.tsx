@@ -1,4 +1,3 @@
-import React from 'react';
 import './globals.css'
 import type {Metadata} from 'next'
 import {ConfigProvider, Layout, Space} from 'antd';
@@ -19,6 +18,7 @@ export default function RootLayout({
                                    }: {
     children: React.ReactNode
 }) {
+
     return (
         <html lang="en">
         <body>
