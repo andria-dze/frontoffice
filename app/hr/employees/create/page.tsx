@@ -1,5 +1,5 @@
 'use client'
-import UserForm from "@/app/hr/_components/UserForm";
+import UserForm from "@/app/hr/employees/create/UserForm";
 
 const handleSubmit = (values: any) => {
     console.log('Success:', values);
@@ -8,6 +8,9 @@ const handleSubmit = (values: any) => {
 export default function CreateEmployee() {
 
     return (
-        <UserForm onSubmit={handleSubmit}/>
+        <>
+            <h2>Create new Employee</h2>
+            <UserForm onSubmit={handleSubmit}/>
+        </>
     )
 }

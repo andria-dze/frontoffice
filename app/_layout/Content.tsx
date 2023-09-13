@@ -5,7 +5,7 @@ import {Layout, Menu, theme} from 'antd';
 
 const Content = ({children}) => {
     return (
-        <Layout.Content >
+        <Layout.Content style={{padding: '16px 24px'}}>
             {children}
         </Layout.Content>
     );

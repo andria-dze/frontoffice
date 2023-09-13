@@ -5,8 +5,8 @@ export default function EmployeesDashboard() {
 
     return (
         <>
+            <h2 className="">Employees list</h2>
             <Users/>
-
         </>
     )
 }

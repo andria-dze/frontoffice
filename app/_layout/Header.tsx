@@ -13,9 +13,9 @@ const headerStyle: CSSProperties = {
 
 const Header = ({children}) => {
     return (
-        <Layout.Content style={headerStyle}>
+        <Layout.Header style={headerStyle}>
             Header
-        </Layout.Content>
+        </Layout.Header>
     );
 };
 

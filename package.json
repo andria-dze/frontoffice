@@ -32,14 +32,15 @@
     "react-relay": "^15.0.0",
     "recoil": "^0.7.7",
     "recoil-relay": "^0.1.0",
+    "recoil-toolkit": "^0.3.0",
     "relay-runtime": "^15.0.0",
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "babel-plugin-relay": "^15.0.0",
     "graphql-cli": "^4.1.0",
     "relay-compiler": "^15.0.0",
     "relay-compiler-language-typescript": "^15.0.1",
-    "babel-plugin-relay": "^15.0.0",
     "sass": "^1.65.1"
   }
 }

@@ -1,8 +1,10 @@
 'use client'
-import {UsersQuery} from "@/data/selectors/Users";
+import {UsersQuery} from "@/app/_data/selectors/Users";
 import type {ColumnsType} from 'antd/es/table';
 import {useRecoilState} from "recoil";
 import {Table} from "antd";
+import {R_HR, R_VIEW_EMPLOYEE} from "@/app/_constants/routes";
+import Link from "next/link";
 
 interface DataType {
     key: string;
@@ -15,14 +17,16 @@ interface DataType {
 const columns: ColumnsType<DataType> = [
     {
         title: 'id',
+        fixed: 'left',
         dataIndex: 'id',
         key: 'id',
-        render: (text) => <a>#{text}</a>,
+        render: (text, record) => <Link href={R_VIEW_EMPLOYEE.replace('[id]', record.id)}>{text}</Link>,
     }, {
         title: 'Email',
+        fixed: 'left',
         dataIndex: 'email',
         key: 'email',
-        render: (text) => <a>{text}</a>,
+        render: (text, record) => <Link href={R_VIEW_EMPLOYEE.replace('[id]', record.id)}>{text}</Link>,
     },
     {
         title: 'First Name',
@@ -40,9 +44,16 @@ const Users = () => {
     const [employess] = useRecoilState(UsersQuery);
     console.log(employess);
     return (
-        <div>
-            <Table columns={columns} dataSource={employess?.users?.edges || []}/>
-        </div>
+
+        <Table columns={columns}
+               scroll={{x: true}}
+               bordered
+               dataSource={employess?.users?.edges.map(el => ({
+                   cursor: el.cursor,
+                   key: el.node.id,
+                   ...el.node
+               })) || []}/>
+
     );
 };
 
