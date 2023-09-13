@@ -6,7 +6,7 @@ import Content from "@/app/_layout/Content";
 import Header from "@/app/_layout/Header";
 import StyledComponentsRegistry from "@/app/_layout/AntdRegistry";
 import theme from "@/app/_layout/themeConfig";
-import RecoilRootProvider from "@/data/RecoilRootProvider";
+import RecoilRootProvider from "@/app/_data/RecoilRootProvider";
 
 export const metadata: Metadata = {
     title: 'Medical ERP',
@@ -20,20 +20,22 @@ export default function RootLayout({
 }) {
 
     return (
-        <html lang="en">
+        <html lang="en" id='root'>
         <body>
         <StyledComponentsRegistry>
             <ConfigProvider theme={theme}>
                 <RecoilRootProvider>
-                    <Layout>
+                    <Layout style={{minHeight: '100vh'}}>
                         <Sider>Sider</Sider>
+
                         <Layout>
                             <Header/>
                             <Content>
                                 {children}
                             </Content>
                         </Layout>
-                    </Layout></RecoilRootProvider>
+                    </Layout>
+                </RecoilRootProvider>
 
             </ConfigProvider>
         </StyledComponentsRegistry>
