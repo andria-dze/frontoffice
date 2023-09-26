@@ -1,9 +1,7 @@
 'use client'
-import {UsersQuery} from "@/app/_data/selectors/Users";
 import type {ColumnsType} from 'antd/es/table';
-import {useRecoilState} from "recoil";
 import {Table} from "antd";
-import {R_HR, R_VIEW_EMPLOYEE} from "@/app/_constants/routes";
+import {R_VIEW_EMPLOYEE} from "@/app/_constants/routes";
 import Link from "next/link";
 
 interface DataType {
@@ -41,18 +39,13 @@ const columns: ColumnsType<DataType> = [
 ];
 
 const Users = () => {
-    const [employess] = useRecoilState(UsersQuery);
-    console.log(employess);
+
     return (
 
         <Table columns={columns}
                scroll={{x: true}}
                bordered
-               dataSource={employess?.users?.edges.map(el => ({
-                   cursor: el.cursor,
-                   key: el.node.id,
-                   ...el.node
-               })) || []}/>
+               dataSource={[]}/>
 
     );
 };

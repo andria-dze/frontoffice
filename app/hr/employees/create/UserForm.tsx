@@ -1,26 +1,12 @@
 'use client'
 import {Button, Form, Input} from "antd";
-import {useMutation, graphql} from "react-relay";
 
 
 const UserForm = ({onSubmit}) => {
-    const [commitEvent] = useMutation(graphql`
-    mutation UserFormMutation($input: CreateUserInput!) {
-      createUser(createUserInput: $input) {
-        id
-        firstName
-        lastName
-        email
-      }
-    }
-  `);
+
     const onFinish = (values: any) => {
         console.log('Success:', values);
-        commitEvent({
-            variables: {
-                input: values
-            }
-        })
+
         onSubmit && onSubmit(values);
     };
 

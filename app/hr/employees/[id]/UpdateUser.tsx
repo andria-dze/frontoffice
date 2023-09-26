@@ -1,8 +1,12 @@
 import {Button, Form, Input} from "antd";
+import {UserQuery} from "@/app/_data/selectors/User";
+import {useRecoilState} from "recoil";
 
-const UpdateUser = ({user}) => {
+const UpdateUser = ({user, params}) => {
+    const [employee, setEmployee] = useRecoilState(UserQuery(Number(params?.id)));
     const onFinish = (data) => {
         console.log('update', data);
+        setEmployee(data)
     };
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);

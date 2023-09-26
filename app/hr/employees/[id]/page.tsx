@@ -1,8 +1,6 @@
 'use client'
-import {UserQuery} from "@/app/_data/selectors/User";
-import {useRecoilState} from "recoil";
-import {Avatar, Card, Skeleton} from 'antd';
-import {EditOutlined, EllipsisOutlined, SettingOutlined} from "@ant-design/icons";
+import {Avatar, Card} from 'antd';
+import {EditOutlined, SettingOutlined} from "@ant-design/icons";
 import Meta from "antd/es/card/Meta";
 import {useState} from "react";
 import UpdateUser from "@/app/hr/employees/[id]/UpdateUser";
@@ -14,8 +12,8 @@ const handleSubmit = (values: any) => {
 
 export default function EditEmployee({params}) {
     const [showEdit, setShowEdit] = useState(false);
-    const [employee] = useRecoilState(UserQuery(Number(params?.id)));
-    let user = employee?.user
+
+    let user = {}
     return (
         <div>
 
